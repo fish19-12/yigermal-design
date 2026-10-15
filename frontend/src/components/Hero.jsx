@@ -242,27 +242,6 @@ transition
 
               <FaArrowRight />
             </Link>
-
-            <Link
-              to="/contact"
-              className="
-px-7
-py-3
-rounded-full
-bg-white/20
-backdrop-blur-md
-border
-border-white/40
-text-white
-font-bold
-text-sm
-hover:bg-white
-hover:text-[#FF2D6F]
-transition
-"
-            >
-              {translate("Designer")}
-            </Link>
           </div>
 
           {/* FEATURES */}
