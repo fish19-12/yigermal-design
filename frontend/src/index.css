@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+body {
+  @apply bg-dark text-white font-body;
+}
