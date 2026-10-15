@@ -832,7 +832,7 @@ const Navbar = () => {
             mobileTranslatedLinks[0],
             mobileTranslatedLinks[2],
             mobileTranslatedLinks[3],
-            mobileTranslatedLinks[4],
+            mobileTranslatedLinks[5],
           ].map((link, index) => {
             if (!link) return null;
 
