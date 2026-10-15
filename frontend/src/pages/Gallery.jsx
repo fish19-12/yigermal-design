@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import { FaArrowRight, FaStar } from "react-icons/fa";
+import { ArrowUpRight } from "lucide-react";
 
 import { useCallback } from "react";
 
@@ -28,30 +28,11 @@ const Gallery = () => {
   );
 
   return (
-    <div
-      className="
-      min-h-screen
-      bg-[#FFE6EE]
-      text-[#1A1A1A]
-      overflow-hidden
-      "
-    >
+    <div className="min-h-screen overflow-hidden bg-[#fff7fa] text-[#211d1c]">
       {/* HEADER */}
 
-      <section
-        className="
-        pt-16
-        pb-10
-        px-5
-        sm:px-8
-        "
-      >
-        <div
-          className="
-          max-w-7xl
-          mx-auto
-          "
-        >
+      <section className="px-5 pb-8 pt-12 sm:px-8 sm:pb-12 sm:pt-20">
+        <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{
               opacity: 0,
@@ -64,105 +45,50 @@ const Gallery = () => {
             transition={{
               duration: 0.7,
             }}
-            className="
-            flex
-            flex-col
-            md:flex-row
-            md:items-end
-            justify-between
-            gap-6
-            "
+            className="flex flex-col gap-6 border-b border-[#f0dce2] pb-7 md:flex-row md:items-end md:justify-between md:pb-9"
           >
             <div>
-              <div
-                className="
-                inline-flex
-                items-center
-                gap-2
-                px-5
-                py-2
-                rounded-full
-                bg-white
-                shadow-sm
-                text-[#FF2D6F]
-                text-xs
-                font-bold
-                uppercase
-                tracking-widest
-                "
-              >
-                <FaStar />
-
+              <div className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#a8445d]">
+                <span className="h-px w-7 bg-[#a8445d]" />
                 {translate("Yigermal Design Gallery")}
               </div>
 
-              <h1
-                className="
-                mt-5
-                text-3xl
-                sm:text-5xl
-                font-serif
-                font-bold
-                leading-tight
-                "
-              >
+              <h1 className="mt-4 max-w-3xl font-serif text-3xl font-medium leading-[1.08] sm:text-5xl lg:text-[3.5rem]">
                 {translate("Habesha Clothing")}
 
-                <span
-                  className="
-                  block
-                  text-[#FF2D6F]
-                  "
-                >
+                <span className="mt-1 block text-[#c34f70]">
                   {translate("Collections")}
                 </span>
               </h1>
+              <div className="mt-4 flex max-w-xl items-start gap-3 rounded-md border-l-[3px] border-[#d47a56] bg-white/75 px-4 py-3 shadow-sm sm:mt-5">
+                <span className="mt-1.5 size-2 shrink-0 rounded-full bg-[#d47a56] ring-4 ring-[#f7e5df]" />
+                <p className="text-sm font-medium leading-relaxed text-[#705956] sm:text-base">
+                  {translate(
+                    "Explore traditional Habesha styles for every generation and occasion.",
+                  )}
+                </p>
+              </div>
             </div>
 
-            <p
-              className="
-              max-w-md
-              text-gray-600
-              text-sm
-              sm:text-base
-              leading-relaxed
-              "
-            >
-              {translate(
-                "Explore Habesha clothing collections for women, men, couples, families, and children. Each piece celebrates Ethiopian heritage through thoughtful design and handcrafted detail.",
-              )}
-            </p>
+            <div className="flex w-fit items-center gap-3 rounded-lg border border-[#f0dce2] bg-white/80 px-4 py-3 shadow-sm md:mb-1">
+              <span className="font-serif text-4xl leading-none text-[#a8445d] sm:text-5xl">
+                04
+              </span>
+              <span className="max-w-20 text-[10px] font-semibold uppercase leading-relaxed tracking-[0.14em] text-[#766b68]">
+                {translate("Habesha styles")}
+              </span>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* COLLECTION CARDS */}
 
-      <section
-        className="
-        px-5
-        sm:px-8
-        pb-24
-        "
-      >
-        <div
-          className="
-          max-w-7xl
-          mx-auto
-          "
-        >
-          <div
-            className="
-            grid
-            grid-cols-2
-            md:grid-cols-3
-            xl:grid-cols-5
-            gap-4
-            sm:gap-6
-            "
-          >
+      <section className="px-5 pb-14 sm:px-8 sm:pb-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5 xl:grid-cols-4">
             {collections.map((item, index) => (
-              <motion.div
+              <motion.article
                 key={item.title}
                 initial={{
                   opacity: 0,
@@ -179,145 +105,44 @@ const Gallery = () => {
                   duration: 0.5,
                   delay: index * 0.1,
                 }}
-                whileHover={{
-                  y: -12,
-                }}
-                className="
-                group
-                relative
-                h-[300px]
-                sm:h-[420px]
-                rounded-[30px]
-                overflow-hidden
-                shadow-xl
-                bg-white
-                "
+                whileHover={{ y: -5 }}
+                className="group min-w-0 overflow-hidden rounded-lg border border-[#f0dce2] bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl"
               >
-                <img
-                  src={item.image}
-                  alt={translate(item.title)}
-                  loading="lazy"
-                  className="
-                  absolute
-                  inset-0
-                  w-full
-                  h-full
-                  object-cover
-                  transition
-                  duration-700
-                  group-hover:scale-110
-                  "
-                />
-
-                <div
-                  className="
-                  absolute
-                  inset-0
-                  bg-gradient-to-t
-                  from-black/90
-                  via-black/40
-                  to-transparent
-                  "
-                />
-
-                <div
-                  className="
-                  absolute
-                  top-4
-                  right-4
-                  sm:top-6
-                  sm:right-6
-                  w-10
-                  h-10
-                  sm:w-14
-                  sm:h-14
-                  rounded-2xl
-                  bg-white
-                  flex
-                  items-center
-                  justify-center
-                  text-[#FF2D6F]
-                  text-lg
-                  sm:text-2xl
-                  shadow-lg
-                  group-hover:rotate-12
-                  transition
-                  "
+                <Link
+                  to={item.link}
+                  className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#a8445d]"
                 >
-                  <item.icon />
-                </div>
-
-                <div
-                  className="
-                  absolute
-                  bottom-0
-                  p-4
-                  sm:p-6
-                  text-white
-                  "
-                >
-                  <p
-                    className="
-                    text-[10px]
-                    sm:text-xs
-                    uppercase
-                    tracking-widest
-                    text-[#FFD6E3]
-                    font-bold
-                    "
-                  >
-                    {translate(item.category)}
-                  </p>
-
-                  <h2
-                    className="
-                    mt-2
-                    text-base
-                    sm:text-xl
-                    font-bold
-                    "
-                  >
-                    {translate(item.title)}
-                  </h2>
-
-                  <p
-                    className="
-                    hidden
-                    sm:block
-                    mt-3
-                    text-sm
-                    text-white/80
-                    line-clamp-3
-                    "
-                  >
-                    {translate(item.description)}
-                  </p>
-
-                  <Link
-                    to={item.link}
-                    className="
-                    mt-4
-                    inline-flex
-                    items-center
-                    gap-2
-                    px-4
-                    py-2
-                    rounded-full
-                    bg-white
-                    text-[#FF2D6F]
-                    text-xs
-                    sm:text-sm
-                    font-bold
-                    hover:scale-105
-                    transition
-                    "
-                  >
-                    {translate("Explore")}
-
-                    <FaArrowRight />
-                  </Link>
-                </div>
-              </motion.div>
+                  <div className="relative aspect-[4/5] overflow-hidden bg-[#2c2023]">
+                    <img
+                      src={item.image}
+                      alt={translate(item.title)}
+                      loading="lazy"
+                      className={`h-full w-full transition-transform duration-700 group-hover:scale-[1.045] ${item.id === "men" ? "object-contain" : "object-cover"}`}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1d1116]/90 via-[#1d1116]/15 to-black/10" />
+                    <span className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-full border border-white/50 bg-black/25 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm sm:left-4 sm:top-4 sm:text-[10px]">
+                      <span className="size-1.5 rounded-full bg-[#f5b6c8]" />
+                      {String(index + 1).padStart(2, "0")} / 04
+                    </span>
+                    <div className="absolute inset-x-0 bottom-0 p-3 text-white sm:p-5">
+                      <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-[#ffd4e0] sm:text-[10px]">
+                        {translate(item.category)}
+                      </p>
+                      <h2 className="mt-1 font-serif text-lg font-medium leading-tight sm:mt-2 sm:text-2xl">
+                        {translate(item.title)}
+                      </h2>
+                      <div className="mt-3 flex items-center justify-between border-t border-white/30 pt-2.5 sm:mt-4 sm:pt-3">
+                        <span className="text-[9px] font-semibold uppercase tracking-[0.12em] sm:text-[10px]">
+                          {translate("Explore style")}
+                        </span>
+                        <span className="grid size-8 place-items-center rounded-full bg-white text-[#a8445d] transition-transform group-hover:rotate-45 sm:size-9">
+                          <ArrowUpRight size={17} aria-hidden="true" />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.article>
             ))}
           </div>
         </div>
@@ -325,72 +150,25 @@ const Gallery = () => {
 
       {/* PREMIUM MESSAGE */}
 
-      <section
-        className="
-        bg-white
-        py-20
-        px-5
-        "
-      >
+      <section className="px-5 pb-12 sm:px-8 sm:pb-16">
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{
             once: true,
           }}
-          className="
-          max-w-4xl
-          mx-auto
-          text-center
-          "
+          className="mx-auto flex max-w-7xl flex-col gap-5 border-t border-[#f0dce2] pt-6 sm:flex-row sm:items-center sm:justify-between"
         >
-          <h2
-            className="
-            text-3xl
-            sm:text-5xl
-            font-serif
-            font-bold
-            "
-          >
+          <h2 className="font-serif text-2xl font-medium sm:text-3xl">
             {translate("Where Fashion Becomes Art")}
           </h2>
 
-          <p
-            className="
-            mt-5
-            text-gray-600
-            max-w-2xl
-            mx-auto
-            "
-          >
-            {translate(
-              "Every Yigermal Design creation celebrates Ethiopian heritage through carefully chosen fabrics, thoughtful design, and beautiful craftsmanship.",
-            )}
-          </p>
-
           <Link
             to="/contact"
-            className="
-            inline-flex
-            mt-8
-            px-10
-            py-4
-            rounded-full
-            bg-[#FF2D6F]
-            text-white
-            font-bold
-            shadow-xl
-            hover:scale-105
-            transition
-            "
+            className="inline-flex w-fit items-center gap-2 bg-[#a8445d] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#87354a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#a8445d]"
           >
             {translate("Contact Designer")}
+            <ArrowUpRight size={17} aria-hidden="true" />
           </Link>
         </motion.div>
       </section>

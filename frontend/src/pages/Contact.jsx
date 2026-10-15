@@ -577,7 +577,7 @@ const Contact = () => {
             leading-tight
             "
           >
-            {translate("Create Your")}
+            {translate("Discover Your")}
 
             <span
               className="

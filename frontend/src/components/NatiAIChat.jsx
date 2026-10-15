@@ -8,13 +8,10 @@ import logo from "../assets/logo.jpg";
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 const starterPrompts = [
-  "How can I order a chiffon dress?",
-
-  "What services does Feyorina Chiffon provide?",
-
-  "I need a traditional Ethiopian wedding dress",
-
-  "How do I request a custom design?",
+  "How do I order women's Habesha clothing?",
+  "What clothing does Yigermal Design create?",
+  "What measurements are needed for men's clothing?",
+  "How do I order matching couple or family outfits?",
 ];
 
 function renderMarkdownContent(content) {
@@ -64,19 +61,17 @@ export default function NatiAIChat() {
 
       content: `
 
-Hello 👋 I’m Feyorina AI.
+Hello 👋 I’m Yigermal AI.
 
-Your luxury fashion assistant for Fiyorina Chiffon.
+Your Habesha clothing assistant for Yigermal Design.
 
 I can help you with:
 
-- Chiffon dress orders
-- Custom fashion designs
-- Ethiopian traditional clothing
-- Bridal collections
-- Textile materials
-- Fashion recommendations
-- Booking consultations
+- Women's and men's Habesha clothing
+- Coordinated couple and family outfits
+- Measurements and custom orders
+- Payment and delivery steps
+- Yigermal Design contact information
 
 How can I help you today?
 
@@ -129,8 +124,7 @@ How can I help you today?
         {
           role: "assistant",
 
-          content:
-            res.data.reply || "How can I help you with Feyorina Chiffon?",
+          content: res.data.reply || "How can I help you with Yigermal Design?",
         },
       ]);
     } catch (error) {
@@ -142,7 +136,7 @@ How can I help you today?
         {
           role: "assistant",
 
-          content: "Sorry, Feyorina AI is temporarily unavailable.",
+          content: "Sorry, Yigermal AI is temporarily unavailable.",
         },
       ]);
     } finally {
@@ -202,7 +196,7 @@ hover:scale-105
       >
         <img
           src={logo}
-          alt="Fiyorina AI"
+          alt="Yigermal AI"
           className="
 
 h-9
@@ -227,7 +221,7 @@ sm:text-base
 
 "
         >
-          Feyorina AI
+          Yigermal AI
         </span>
       </button>
 
@@ -332,7 +326,7 @@ gap-3
               >
                 <img
                   src={logo}
-                  alt="Fiyorina"
+                  alt="Yigermal Design"
                   className="
 
 h-10
@@ -347,9 +341,9 @@ object-cover
                 />
 
                 <div>
-                  <p className="font-bold">Feyorina AI</p>
+                  <p className="font-bold">Yigermal AI</p>
 
-                  <p className="text-xs">Luxury Fashion Concierge</p>
+                  <p className="text-xs">Habesha Clothing Assistant</p>
                 </div>
               </div>
 
@@ -431,7 +425,7 @@ text-gray-500
 
 "
                   >
-                    Feyorina AI is thinking...
+                    Yigermal AI is thinking...
                   </div>
                 )}
 
@@ -526,7 +520,7 @@ px-3
                     onKeyDown={(e) => {
                       if (e.key === "Enter") sendMessage();
                     }}
-                    placeholder="Ask Fiyorina AI..."
+                    placeholder="Ask Yigermal AI..."
                     className="
 
 flex-1

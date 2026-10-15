@@ -11,7 +11,6 @@ import {
   FaBars,
   FaInfoCircle,
   FaTimes,
-  FaShoppingBag,
   FaPhoneAlt,
   FaGem,
 } from "react-icons/fa";
@@ -67,11 +66,6 @@ const Navbar = () => {
     },
 
     {
-      name: "Collections",
-      path: "/tutorial",
-    },
-
-    {
       name: "Gallery",
       path: "/gallery",
     },
@@ -87,7 +81,7 @@ const Navbar = () => {
     },
 
     {
-      name: "Custom Design",
+      name: "Services",
       path: "/services",
     },
 
@@ -106,12 +100,6 @@ const Navbar = () => {
       name: "Home",
       path: "/",
       icon: <FaHome />,
-    },
-
-    {
-      name: "Collections",
-      path: "/gallery",
-      icon: <FaImages />,
     },
 
     {
@@ -163,8 +151,6 @@ const Navbar = () => {
     })),
   );
 
-  const [bookingText, setBookingText] = useState("Custom Order");
-
   // =====================================================
   // LOCAL JSON TRANSLATION EFFECT
   // =====================================================
@@ -184,8 +170,6 @@ const Navbar = () => {
           translated: translate(item.name),
         })),
       );
-
-      setBookingText(translate("Custom Order"));
     };
 
     updateTranslations();
@@ -472,33 +456,6 @@ const Navbar = () => {
                 )}
               </AnimatePresence>
             </div>
-
-            {/* =====================================================
-                DESKTOP CUSTOM ORDER BUTTON
-            ===================================================== */}
-
-            <Link
-              to="/booking"
-              className="
-                flex
-                items-center
-                gap-3
-                px-7
-                py-3.5
-                rounded-full
-                bg-[#FF2D6F]
-                text-white
-                font-semibold
-                text-sm
-                shadow-lg
-                hover:scale-105
-                transition
-              "
-            >
-              <FaShoppingBag />
-
-              {bookingText}
-            </Link>
           </div>
         </div>
       </nav>
@@ -836,33 +793,6 @@ const Navbar = () => {
                   </motion.div>
                 );
               })}
-
-              {/* =====================================================
-                  MOBILE CUSTOM ORDER CTA
-              ===================================================== */}
-
-              <Link
-                to="/booking"
-                className="
-                  mt-4
-                  flex
-                  items-center
-                  justify-center
-                  gap-3
-                  py-4
-                  rounded-2xl
-                  bg-gradient-to-r
-                  from-[#FF2D6F]
-                  to-[#F59E0B]
-                  text-white
-                  font-bold
-                  shadow-lg
-                "
-              >
-                <FaShoppingBag />
-
-                {bookingText}
-              </Link>
             </div>
           </motion.div>
         )}

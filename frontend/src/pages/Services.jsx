@@ -9,138 +9,67 @@ import am from "../translations/am.json";
 
 import {
   FaGem,
-  FaTshirt,
-  FaPalette,
   FaCrown,
-  FaLeaf,
   FaHeart,
   FaArrowRight,
   FaStar,
   FaCheck,
+  FaFemale,
+  FaUserTie,
+  FaUsers,
 } from "react-icons/fa";
 
 /* ================= IMAGES ================= */
 
-import chiffonImg from "../assets/chiffon.jpg";
-import bridalImg from "../assets/bridal.jpg";
-import customImg from "../assets/custom.jpg";
-import traditionalImg from "../assets/traditional.jpg";
-import textileImg from "../assets/textile.jpg";
-import stylingImg from "../assets/styling.jpg";
+import womenImg from "../assets/womens.jpg";
+import menImg from "../assets/mens.jpg";
+import couplesImg from "../assets/copule.jpg";
+import familyImg from "../assets/family.jpg";
 
 /* =====================================================
- FIYORINA PREMIUM SERVICES DATA
+ YIGERMAL HABESHA CLOTHING SERVICES
 ===================================================== */
 
 const services = [
   {
-    title: "Luxury Chiffon Collection",
-
-    subtitle: "Signature Feminine Elegance",
-
+    title: "Habesha Women",
+    subtitle: "Traditional clothing for women",
     description:
-      "Exclusive chiffon designs created with premium fabrics, elegant colors, and timeless beauty.",
-
-    image: chiffonImg,
-
-    icon: <FaGem />,
-
-    badge: "Featured",
-
-    features: [
-      "Premium Chiffon",
-      "Luxury Colors",
-      "Elegant Finish",
-      "Soft Fabric",
-    ],
+      "Custom-fitted Habesha dresses with thoughtful finishing for celebrations and special moments.",
+    image: womenImg,
+    icon: <FaFemale />,
+    badge: "Women",
+    features: ["Custom Fit", "Hand-finished", "Made to Order"],
   },
-
   {
-    title: "Bridal Luxury Collection",
-
-    subtitle: "Your Dream Wedding Look",
-
+    title: "Habesha Men",
+    subtitle: "Traditional clothing for men",
     description:
-      "Beautiful bridal creations designed with luxury details, perfect finishing, and unforgettable elegance.",
-
-    image: bridalImg,
-
-    icon: <FaCrown />,
-
-    badge: "Bridal",
-
-    features: [
-      "Wedding Style",
-      "Custom Design",
-      "Luxury Details",
-      "Perfect Fit",
-    ],
+      "Refined traditional menswear tailored for gatherings, celebrations, and everyday pride.",
+    image: menImg,
+    icon: <FaUserTie />,
+    badge: "Men",
+    features: ["Custom Fit", "Traditional Detail", "Made to Order"],
   },
-
   {
-    title: "Ethiopian Heritage Wear",
-
-    subtitle: "Tradition Meets Modern Luxury",
-
+    title: "Habesha Couples",
+    subtitle: "Coordinated looks for two",
     description:
-      "Modern Ethiopian fashion inspired by culture, craftsmanship, and premium artistic details.",
-
-    image: traditionalImg,
-
-    icon: <FaTshirt />,
-
-    badge: "Heritage",
-
-    features: [
-      "Habesha Style",
-      "Premium Embroidery",
-      "Event Wear",
-      "Modern Touch",
-    ],
+      "Matching Habesha outfits designed for couples to celebrate together in style.",
+    image: couplesImg,
+    icon: <FaHeart />,
+    badge: "Couples",
+    features: ["Matching Looks", "Custom Fit", "Made to Order"],
   },
-
   {
-    title: "Custom Fashion Design",
-
-    subtitle: "Created Only For You",
-
+    title: "Habesha Family",
+    subtitle: "Coordinated clothing for family",
     description:
-      "Transform your personal vision into a unique fashion piece designed around your style.",
-
-    image: customImg,
-
-    icon: <FaPalette />,
-
-    badge: "Bespoke",
-
-    features: [
-      "Personal Design",
-      "Custom Size",
-      "Unique Style",
-      "Luxury Finish",
-    ],
-  },
-
-  {
-    title: "Premium Textile Collection",
-
-    subtitle: "Luxury Materials Selection",
-
-    description:
-      "High-quality chiffon and fashion textiles selected for designers and fashion lovers.",
-
-    image: textileImg,
-
-    icon: <FaLeaf />,
-
-    badge: "Premium",
-
-    features: [
-      "Designer Fabric",
-      "Quality Material",
-      "Bulk Supply",
-      "Luxury Choice",
-    ],
+      "Complementary Habesha styles made for family gatherings and lasting memories.",
+    image: familyImg,
+    icon: <FaUsers />,
+    badge: "Family",
+    features: ["Coordinated Style", "Custom Fit", "Made to Order"],
   },
 ];
 
@@ -162,38 +91,10 @@ const Services = () => {
   );
 
   return (
-    <div
-      className="
-min-h-screen
-bg-[#FFF7FA]
-text-[#1A1A1A]
-overflow-hidden
-"
-    >
+    <div className="min-h-screen overflow-hidden bg-[#fffaf8] text-[#211d1c]">
       {/* ================= INTRO ================= */}
 
-      <section
-        className="
-relative
-pt-10
-pb-6
-px-5
-"
-      >
-        <div
-          className="
-absolute
-top-0
-left-1/2
--translate-x-1/2
-w-[260px]
-h-[260px]
-bg-[#FF2D6F]/10
-blur-[100px]
-rounded-full
-"
-        />
-
+      <section className="px-5 pb-5 pt-8 sm:px-8 sm:pb-7 sm:pt-12">
         <motion.div
           initial={{
             opacity: 0,
@@ -206,126 +107,48 @@ rounded-full
           transition={{
             duration: 0.6,
           }}
-          className="
-relative
-max-w-xl
-mx-auto
-text-center
-"
+          className="mx-auto grid max-w-7xl grid-cols-1 items-end gap-5 border-b border-[#e9dfdc] pb-6 md:grid-cols-[minmax(0,1fr)_16rem] md:gap-10 md:pb-7"
         >
-          <p
-            className="
-flex
-items-center
-justify-center
-gap-2
-text-[10px]
-uppercase
-tracking-[0.45em]
-font-bold
-text-[#FF2D6F]
-"
-          >
-            <FaStar className="text-[#F59E0B]" />
+          <div className="min-w-0">
+            <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#a8445d] sm:text-[11px]">
+              <span className="h-px w-6 bg-[#a8445d]" />
+              {translate("YIGERMAL DESIGN SERVICES")}
+            </p>
 
-            {translate("FIYORINA COLLECTION")}
-          </p>
+            <h1 className="mt-3 max-w-3xl font-serif text-3xl font-medium leading-[1.08] sm:text-5xl lg:text-6xl">
+              {translate("Habesha Clothing")}
 
-          <h1
-            className="
-mt-3
-text-3xl
-sm:text-4xl
-font-serif
-font-bold
-leading-tight
-"
-          >
-            {translate("Luxury Fashion")}
+              <span className="mt-1 block text-2xl leading-tight text-[#a8445d] sm:text-4xl lg:text-5xl">
+                {translate("Made for Every Generation")}
+              </span>
+            </h1>
+          </div>
 
-            <span
-              className="
-block
-text-[#FF2D6F]
-"
-            >
-              {translate("Created For You")}
-            </span>
-          </h1>
-
-          <p
-            className="
-mt-3
-text-sm
-text-[#6B7280]
-max-w-md
-mx-auto
-leading-relaxed
-"
-          >
-            {translate(
-              "Discover elegant chiffon, bridal beauty, traditional designs and custom creations.",
-            )}
+          <p className="max-w-sm border-l-[3px] border-[#d47a56] bg-white/75 px-4 py-3 text-sm leading-relaxed text-[#705956] shadow-sm md:mb-1 md:max-w-none">
+            {translate("Women, men, couples, and family styles.")}
           </p>
         </motion.div>
       </section>
       {/* ================= SERVICES GRID ================= */}
 
-      <section
-        className="
-max-w-7xl
-mx-auto
-px-5
-pb-20
-"
-      >
-        <div
-          className="
-flex
-items-center
-justify-between
-mb-8
-"
-        >
-          <h2
-            className="
-text-2xl
-sm:text-3xl
-font-serif
-font-bold
-"
-          >
-            {translate("Our Designs")}
+      <section className="mx-auto max-w-7xl px-5 pb-14 pt-5 sm:px-8 sm:pb-20 sm:pt-7">
+        <div className="mb-5 flex items-end justify-between border-b border-[#e9dfdc] pb-4 sm:mb-7">
+          <h2 className="font-serif text-2xl font-medium sm:text-3xl">
+            {translate("Our Services")}
           </h2>
 
           <Link
             to="/gallery"
-            className="
-text-xs
-uppercase
-tracking-widest
-font-bold
-text-[#FF2D6F]
-hover:opacity-70
-transition
-"
+            className="inline-flex items-center gap-1 text-xs font-semibold uppercase text-[#a8445d] transition-opacity hover:opacity-70"
           >
             {translate("View All")}
           </Link>
         </div>
 
-        <div
-          className="
-grid
-grid-cols-1
-md:grid-cols-2
-xl:grid-cols-3
-gap-6
-"
-        >
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4">
           {services.map((service, index) => (
             <motion.article
-              key={index}
+              key={service.title}
               initial={{
                 opacity: 0,
                 y: 40,
@@ -341,178 +164,62 @@ gap-6
                 duration: 0.5,
                 delay: index * 0.08,
               }}
-              whileHover={{
-                y: -8,
-              }}
-              className="
-group
-bg-white
-rounded-[28px]
-overflow-hidden
-border
-border-[#F1DCE3]
-shadow-sm
-hover:shadow-xl
-transition-all
-duration-500
-"
+              whileHover={{ y: -4 }}
+              className="group flex min-w-0 flex-col overflow-hidden rounded-md border border-[#ead7da] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               {/* IMAGE */}
 
-              <div
-                className="
-relative
-h-[320px]
-sm:h-[350px]
-overflow-hidden
-"
-              >
+              <div className="relative aspect-[4/3] overflow-hidden bg-[#2b2022] sm:aspect-[4/5]">
                 <img
                   src={service.image}
                   alt={translate(service.title)}
                   loading="lazy"
-                  className="
-w-full
-h-full
-object-cover
-group-hover:scale-110
-transition-transform
-duration-700
-"
+                  className={`h-full w-full transition-transform duration-700 group-hover:scale-[1.035] ${service.title === "Habesha Men" ? "object-contain" : "object-cover"}`}
                 />
 
-                <div
-                  className="
-absolute
-inset-0
-bg-gradient-to-t
-from-black/70
-via-black/10
-to-transparent
-"
-                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/5" />
 
                 {/* BADGE */}
 
-                <div
-                  className="
-absolute
-top-4
-left-4
-px-4
-py-2
-rounded-full
-bg-white/95
-text-[#FF2D6F]
-text-[11px]
-font-bold
-flex
-items-center
-gap-2
-shadow-md
-"
-                >
-                  <FaStar className="text-[#F59E0B]" />
+                <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full border border-white/70 bg-white/95 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-[#a8445d] shadow-sm sm:left-4 sm:top-4 sm:text-[11px]">
+                  <FaStar aria-hidden="true" />
 
                   {translate(service.badge)}
                 </div>
 
                 {/* ICON */}
 
-                <div
-                  className="
-absolute
-bottom-4
-right-4
-w-14
-h-14
-rounded-2xl
-bg-white
-flex
-items-center
-justify-center
-text-[#FF2D6F]
-text-2xl
-shadow-lg
-group-hover:rotate-12
-transition-transform
-"
-                >
+                <div className="absolute bottom-3 right-3 grid size-10 place-items-center rounded-full bg-white text-lg text-[#a8445d] shadow-md transition-transform group-hover:rotate-12 sm:bottom-4 sm:right-4 sm:size-12">
                   {service.icon}
                 </div>
               </div>
 
               {/* CONTENT */}
 
-              <div
-                className="
-p-5
-"
-              >
-                <h3
-                  className="
-text-xl
-font-serif
-font-bold
-group-hover:text-[#FF2D6F]
-transition-colors
-"
-                >
+              <div className="flex flex-1 flex-col p-4 sm:p-5">
+                <h3 className="font-serif text-xl font-semibold leading-tight text-[#211d1c] transition-colors group-hover:text-[#a8445d] sm:text-2xl">
                   {translate(service.title)}
                 </h3>
 
-                <p
-                  className="
-mt-2
-text-sm
-font-semibold
-text-[#F59E0B]
-"
-                >
+                <p className="mt-2 text-sm font-semibold text-[#a8445d]">
                   {translate(service.subtitle)}
                 </p>
 
-                <p
-                  className="
-mt-3
-text-sm
-text-[#6B7280]
-leading-relaxed
-"
-                >
+                <p className="mt-3 text-sm leading-relaxed text-[#766b68]">
                   {translate(service.description)}
                 </p>
 
                 {/* FEATURES */}
 
-                <div
-                  className="
-mt-5
-flex
-flex-wrap
-gap-2
-"
-                >
+                <div className="mt-4 flex flex-wrap gap-1.5 sm:gap-2">
                   {service.features.map((feature, i) => (
                     <span
                       key={i}
-                      className="
-flex
-items-center
-gap-1.5
-px-3
-py-1.5
-rounded-full
-bg-[#FFF3F7]
-text-[11px]
-font-semibold
-"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-[#fff2f5] px-2.5 py-1.5 text-[10px] font-semibold text-[#644b50] sm:px-3 sm:text-[11px]"
                     >
                       <FaCheck
-                        className="
-text-[#FF2D6F]
-text-[9px]
-"
+                        className="text-[9px] text-[#a8445d]"
+                        aria-hidden="true"
                       />
 
                       {translate(feature)}
@@ -524,22 +231,7 @@ text-[9px]
 
                 <Link
                   to="/gallery"
-                  className="
-mt-6
-flex
-items-center
-justify-center
-gap-3
-w-full
-py-3.5
-rounded-full
-bg-[#1A1A1A]
-text-white
-text-sm
-font-semibold
-hover:bg-[#FF2D6F]
-transition-all
-"
+                  className="mt-auto flex w-full items-center justify-center gap-2 rounded-sm bg-[#a8445d] py-3 text-sm font-semibold text-white transition-colors hover:bg-[#87354a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a8445d]"
                 >
                   {translate("View Collection")}
 
@@ -550,7 +242,7 @@ transition-all
           ))}
         </div>
       </section>
-      {/* ================= WHY FIYORINA ================= */}
+      {/* ================= WHY YIGERMAL DESIGN ================= */}
 
       <section
         className="
@@ -606,7 +298,7 @@ font-bold
 text-[#FF2D6F]
 "
             >
-              {translate("WHY FIYORINA")}
+              {translate("WHY YIGERMAL DESIGN")}
             </p>
 
             <h2
@@ -618,7 +310,7 @@ font-serif
 font-bold
 "
             >
-              {translate("More Than Fashion")}
+              {translate("Habesha Clothing")}
 
               <span
                 className="
@@ -626,7 +318,7 @@ block
 text-[#FF2D6F]
 "
               >
-                {translate("A Luxury Experience")}
+                {translate("Traditional Style")}
               </span>
             </h2>
 
@@ -641,7 +333,7 @@ leading-relaxed
 "
             >
               {translate(
-                "Every creation combines premium fabrics, creative design, and careful craftsmanship to make your style unforgettable.",
+                "Women's, men's, couple, and family clothing made with care for your occasion and fit.",
               )}
             </p>
           </motion.div>
@@ -658,25 +350,25 @@ mt-10
               {
                 icon: <FaGem />,
 
-                title: "Premium Quality",
+                title: "Custom Fit",
 
-                text: "Luxury fabrics and carefully selected materials for every design.",
+                text: "Habesha clothing tailored to your measurements.",
               },
 
               {
                 icon: <FaHeart />,
 
-                title: "Personal Style",
+                title: "Couples and Family",
 
-                text: "Fashion created around your personality, beauty and vision.",
+                text: "Coordinated styles for gatherings and celebrations.",
               },
 
               {
                 icon: <FaCrown />,
 
-                title: "Expert Craftsmanship",
+                title: "Habesha Detail",
 
-                text: "Professional finishing with attention to every detail.",
+                text: "Traditional Ethiopian clothing with thoughtful finishing.",
               },
             ].map((item, index) => (
               <motion.div
@@ -812,7 +504,7 @@ font-bold
 text-white/80
 "
           >
-            {translate("FIYORINA CHIFFON")}
+            {translate("YIGERMAL DESIGN")}
           </p>
 
           <h2
@@ -826,7 +518,7 @@ font-bold
 leading-tight
 "
           >
-            {translate("Create Your")}
+            {translate("Create a Look")}
 
             <span
               className="
@@ -848,7 +540,7 @@ leading-relaxed
 "
           >
             {translate(
-              "Choose luxury chiffon, bridal elegance, traditional beauty or a custom design created especially for you.",
+              "Discover Habesha clothing for women, men, couples, and families.",
             )}
           </p>
 

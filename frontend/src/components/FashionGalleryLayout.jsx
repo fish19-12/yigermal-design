@@ -21,7 +21,11 @@ import { useLanguage } from "../context/LanguageContext.jsx";
 
 import en from "../translations/en.json";
 import am from "../translations/am.json";
-import fallbackImage from "../assets/traditional1.jpg";
+import fallbackImage from "../assets/womens.jpg";
+import womenPhotoOne from "../assets/wo1.jpg";
+import womenPhotoTwo from "../assets/wo2.jpg";
+import womenPhotoThree from "../assets/wo3.jpg";
+import womenPhotoFour from "../assets/wo4.jpg";
 
 /*
 =====================================================
@@ -221,13 +225,30 @@ const FashionGalleryLayout = ({
     fetchGallery();
   }, [fetchGallery]);
 
+  const displayPhotos = useMemo(() => {
+    if (photos.length > 0) return photos;
+    if (loading || category !== "Women") return [];
+
+    return [womenPhotoOne, womenPhotoTwo, womenPhotoThree, womenPhotoFour].map(
+      (imageUrl, index) => ({
+        _id: `women-preview-${index + 1}`,
+        title: translate(`Women Style ${String(index + 1).padStart(2, "0")}`),
+        imageUrl,
+        isPreview: true,
+      }),
+    );
+  }, [category, loading, photos, translate]);
+
   /*
   =====================================================
   MEMO VALUES
   =====================================================
   */
 
-  const totalImages = useMemo(() => photos.length, [photos.length]); /*
+  const totalImages = useMemo(
+    () => displayPhotos.length,
+    [displayPhotos.length],
+  ); /*
 =====================================================
 IMAGE NAVIGATION
 =====================================================
@@ -235,23 +256,23 @@ IMAGE NAVIGATION
 
   const nextImage = useCallback(() => {
     setPreviewIndex((current) => {
-      if (current === null || photos.length === 0) {
+      if (current === null || displayPhotos.length === 0) {
         return 0;
       }
 
-      return current >= photos.length - 1 ? 0 : current + 1;
+      return current >= displayPhotos.length - 1 ? 0 : current + 1;
     });
-  }, [photos.length]);
+  }, [displayPhotos.length]);
 
   const previousImage = useCallback(() => {
     setPreviewIndex((current) => {
-      if (current === null || photos.length === 0) {
+      if (current === null || displayPhotos.length === 0) {
         return 0;
       }
 
-      return current <= 0 ? photos.length - 1 : current - 1;
+      return current <= 0 ? displayPhotos.length - 1 : current - 1;
     });
-  }, [photos.length]);
+  }, [displayPhotos.length]);
 
   /*
 =====================================================
@@ -315,6 +336,8 @@ CART SYSTEM
       image: item.imageUrl || FALLBACK_IMAGE,
 
       price: item.price || translate("Custom Price"),
+
+      category: item.category || category,
 
       description: item.description || "",
     };
@@ -515,13 +538,13 @@ tracking-[0.3em]
             <h1
               className="
 
-mt-7
+mt-4
 
 text-4xl
 
-sm:text-5xl
+sm:text-4xl
 
-md:text-7xl
+md:text-5xl
 
 font-serif
 
@@ -566,7 +589,9 @@ leading-relaxed
 "
             >
               {translate(
-                "Discover Yigermal Design Habesha clothing for women, men, couples, families, and children, created for meaningful celebrations and everyday cultural pride.",
+                category === "Women"
+                  ? "Discover Yigermal Design's Habesha dresses for women, created for meaningful celebrations and everyday cultural pride."
+                  : "Discover Yigermal Design Habesha clothing, created for meaningful celebrations and everyday cultural pride.",
               )}
             </p>
           </motion.div>
@@ -638,7 +663,7 @@ EMPTY COLLECTION
 =====================================================
 
 */}
-        {!loading && photos.length === 0 && (
+        {!loading && displayPhotos.length === 0 && (
           <motion.div
             initial={{
               opacity: 0,
@@ -725,7 +750,7 @@ sm:gap-7
 
 "
         >
-          {photos.map((item, index) => (
+          {displayPhotos.map((item, index) => (
             <motion.article
               key={item._id || index}
               initial={{
@@ -905,27 +930,7 @@ line-clamp-2
                   {item.title || translate("Luxury Design")}
                 </h2>
 
-                <div
-                  className="
-
-mt-3
-
-inline-flex
-
-px-4
-
-py-1.5
-
-rounded-full
-
-bg-[#ff2d6f]
-
-text-xs
-
-font-black
-
-"
-                >
+                <div className="mt-3 inline-flex rounded-full bg-[#ff2d6f] px-4 py-1.5 text-xs font-bold">
                   {item.price
                     ? `${item.price} Birr`
                     : translate("Custom Price")}
@@ -980,7 +985,7 @@ transition-all
           ))}
         </div>
         <AnimatePresence>
-          {previewIndex !== null && photos[previewIndex] && (
+          {previewIndex !== null && displayPhotos[previewIndex] && (
             <motion.div
               initial={{
                 opacity: 0,
@@ -1142,9 +1147,10 @@ items-center
 "
               >
                 <img
-                  src={photos[previewIndex].imageUrl || FALLBACK_IMAGE}
+                  src={displayPhotos[previewIndex].imageUrl || FALLBACK_IMAGE}
                   alt={
-                    photos[previewIndex].title || translate("Fiyorina Design")
+                    displayPhotos[previewIndex].title ||
+                    translate("Yigermal Design")
                   }
                   className="
 
@@ -1185,7 +1191,8 @@ font-black
 
 "
                   >
-                    {photos[previewIndex].title || translate("Luxury Design")}
+                    {displayPhotos[previewIndex].title ||
+                      translate("Luxury Design")}
                   </h2>
 
                   <p
@@ -1201,14 +1208,14 @@ font-black
 
 "
                   >
-                    {photos[previewIndex].price
-                      ? `${photos[previewIndex].price} Birr`
+                    {displayPhotos[previewIndex].price
+                      ? `${displayPhotos[previewIndex].price} Birr`
                       : translate("Custom Price")}
                   </p>
 
                   <button
                     onClick={() => {
-                      addToCart(photos[previewIndex]);
+                      addToCart(displayPhotos[previewIndex]);
                     }}
                     className="
 

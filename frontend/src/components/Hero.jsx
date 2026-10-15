@@ -31,20 +31,20 @@ const Hero = () => {
   useEffect(() => {
     setDescription(
       translate(
-        "Luxury chiffon, Ethiopian tradition and modern fashion designed by Fiyorina Chiffon.",
+        "Habesha clothing for women, men, couples, and families, designed by Yigermal Design.",
       ),
     );
   }, [language, translate]);
 
   const [text] = useTypewriter({
     words: [
-      translate("Fiyorina Chiffon"),
+      translate("Habesha Clothing"),
 
-      translate("Luxury Ethiopian Fashion"),
+      translate("Women's Habesha Wear"),
 
-      translate("Elegant Bridal Designs"),
+      translate("Men's Habesha Wear"),
 
-      translate("Custom Fashion Creation"),
+      translate("Couples and Family Styles"),
     ],
 
     loop: true,
@@ -69,7 +69,7 @@ overflow-hidden
       {/* SEO */}
 
       <h1 className="sr-only">
-        {translate("Fiyorina Chiffon Luxury Ethiopian Fashion")}
+        {translate("Yigermal Design Habesha Clothing")}
       </h1>
 
       {/* IMAGE */}
@@ -167,7 +167,7 @@ tracking-widest
           >
             <FaGem />
 
-            {translate("Luxury Fashion House")}
+            {translate("YIGERMAL DESIGN")}
           </div>
 
           {/* TITLE */}
@@ -182,7 +182,7 @@ font-black
 leading-tight
 "
           >
-            {translate("Create Your")}
+            {translate("Yigermal Design")}
 
             <span
               className="
@@ -277,11 +277,11 @@ font-semibold
 text-white/80
 "
           >
-            <span>✨ {translate("Luxury")}</span>
+            <span>{translate("Women")}</span>
 
-            <span>✨ {translate("Bridal")}</span>
+            <span>{translate("Men")}</span>
 
-            <span>✨ {translate("Custom")}</span>
+            <span>{translate("Couples & Family")}</span>
           </div>
         </motion.div>
       </div>

@@ -3,8 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import measurementImage from "../assets/measurment.jpg";
-
 import {
   FaShoppingBag,
   FaTrash,
@@ -26,6 +24,8 @@ import { useLanguage } from "../context/LanguageContext.jsx";
 
 import enTranslations from "../translations/en.json";
 import amTranslations from "../translations/am.json";
+import womenMeasurementGuide from "../assets/measurment guide for women.jpg";
+import menMeasurementGuide from "../assets/measurment guide for men.jpg";
 const CartPage = () => {
   const { language } = useLanguage();
 
@@ -54,6 +54,10 @@ const CartPage = () => {
     return saved ? JSON.parse(saved) : [];
   });
 
+  const isMenOrder = items.some(
+    (item) => item.category?.toLowerCase() === "men",
+  );
+
   const [loading, setLoading] = useState(false);
 
   // ================================
@@ -65,9 +69,9 @@ const CartPage = () => {
     telebirr: {
       name: "Telebirr",
 
-      number: "0911139312",
+      number: "0933005058",
 
-      accountName: "Zubeyida Zeynu",
+      accountName: "Yigermal Design",
 
       prepayment: 3000,
     },
@@ -85,51 +89,47 @@ const CartPage = () => {
   // MEASUREMENTS
   // ================================
 
-  const measurementFields = [
-    {
-      key: "shoulder",
-      title: "Shoulder",
-      description: "Shoulder width",
-    },
-
-    {
-      key: "sleeve",
-      title: "Sleeve",
-      description: "Sleeve length",
-    },
-
-    {
-      key: "bust",
-      title: "Bust",
-      description: "Full bust",
-    },
-
-    {
-      key: "waist",
-      title: "Waist",
-      description: "Natural waist",
-    },
-
-    {
-      key: "hips",
-      title: "Hips",
-      description: "Hip size",
-    },
-
-    {
-      key: "gownLength",
-      title: "Gown Length",
-      description: "Dress length",
-    },
-
-    {
-      key: "waistHem",
-      title: "Waist Hem",
-      description: "Waist to bottom",
-    },
-  ];
+  const measurementFields = isMenOrder
+    ? [
+        { key: "chest", title: "Chest", description: "Chest" },
+        { key: "waist", title: "Waist", description: "Waist" },
+        { key: "hips", title: "Hips", description: "Hips" },
+        {
+          key: "shoulder",
+          title: "Shoulder Width",
+          description: "Shoulder Width",
+        },
+        {
+          key: "sleeve",
+          title: "Sleeve Length",
+          description: "Sleeve Length",
+        },
+        { key: "fullHeight", title: "Full Height", description: "Full Height" },
+        {
+          key: "trouserInseam",
+          title: "Trouser Inseam",
+          description: "Trouser Inseam",
+        },
+      ]
+    : [
+        { key: "bust", title: "Bust", description: "Bust" },
+        { key: "waist", title: "Waist", description: "Waist" },
+        { key: "hips", title: "Hips", description: "Hips" },
+        {
+          key: "shoulder",
+          title: "Shoulder Width",
+          description: "Shoulder Width",
+        },
+        {
+          key: "sleeve",
+          title: "Sleeve Length",
+          description: "Sleeve Length",
+        },
+        { key: "height", title: "Height", description: "Height" },
+      ];
 
   const [measurements, setMeasurements] = useState({
+    chest: "",
     shoulder: "",
     sleeve: "",
     bust: "",
@@ -137,6 +137,9 @@ const CartPage = () => {
     hips: "",
     gownLength: "",
     waistHem: "",
+    fullHeight: "",
+    height: "",
+    trouserInseam: "",
   });
 
   // ================================
@@ -385,7 +388,7 @@ font-bold
 "
           >
             <FaGem />
-            {translate("Fiyorina Custom Order")}
+            {translate("Yigermal Design Order")}
           </div>
 
           <h1
@@ -594,7 +597,9 @@ gap-2
           <div
             className="
 lg:col-span-2
-space-y-8
+flex
+flex-col
+gap-8
 "
           >
             {/* MEASUREMENTS */}
@@ -607,6 +612,7 @@ border
 border-pink-100
 p-6
 sm:p-8
+order-2
 "
             >
               <div
@@ -758,16 +764,14 @@ text-gray-900
                 </div>
 
                 <img
-                  src={measurementImage}
-                  alt={translate("Measurement guide")}
-                  className="
-w-full
-h-auto
-max-h-[320px]
-object-contain
-rounded-2xl
-bg-white
-"
+                  src={isMenOrder ? menMeasurementGuide : womenMeasurementGuide}
+                  alt={translate(
+                    isMenOrder
+                      ? "Men Measurement Guide"
+                      : "Women Measurement Guide",
+                  )}
+                  className="max-h-[520px] w-full rounded-xl bg-white object-contain"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -781,6 +785,7 @@ border
 border-pink-100
 p-6
 sm:p-8
+order-1
 "
             >
               <div
@@ -930,6 +935,7 @@ border
 border-pink-100
 p-6
 sm:p-8
+order-3
 "
             >
               <div
@@ -1173,6 +1179,7 @@ border
 border-pink-100
 p-6
 sm:p-8
+order-4
 "
             >
               <div
@@ -1299,6 +1306,7 @@ rounded-[35px]
 p-6
 sm:p-8
 text-white
+order-5
 "
             >
               <div
